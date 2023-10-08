@@ -1,0 +1,8 @@
+<div class="iwsnypads">
+  <button (click)="back()">BACK</button>
+    <button (click)="addCircle()">click circle</button>
+    <div *ngFor="let circle of circles " class="cir" [class.selected]="circle.isSelected"
+      [style.background-color]="circle.backgroundColor" (click)="toggleSelectCircle(circle)">
+      {{circle.id}}
+  
+    </div>

@@ -1,484 +1,1154 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
 
-  p {
-    margin: 0;
-  }
 
-  .spacer {
-    flex: 1;
-  }
+<!-- <link rel="stylesheet" href="">
+<script src=".js"></script> -->
+<!-- <div class="main">
+  <div class="nav">
+    <h1 class="title-section"> {{title}}</h1>
+  </div> --> 
+  <!-- open interpolation hota h pr uspe css nahi lagti h -->
+  <!-- {{navv}}
+  <p class="c">{{navv}}</p> -->
 
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
+  <!-- test cases of interpolation all imp i/w :: testcase no1.  -->
+  <!-- <p> {{no1 + no2}}</p> -->
+  <!-- //i/w Q. 
+  can we pass arrithematic expretions in string interpolation ? >> yes.  -->
+  <!-- <p> {{200+200}}</p> -->
+  <!-- add krega 400 legal coade -->
 
-  .toolbar img {
-    margin: 0 16px;
-  }
+  <!-- 2.
+  <p> {{200 +'piya' + 200 + 20}}</p> -->
+  <!-- isme jasehe string mila o bad ki sare cantain ko string trit krega 
+o/p  200piya20020  snypadss puchenge ase  wht is the o/p of this interpulation ?-->
+ 
 
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
+<!-- <p> {{200 +300+'piya' + 200 + 20}}</p> -->
 
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
 
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
-    opacity: 0.8;
-  }
+  <!-- 500piya20020 -->
+  <!-- <p>{{typeof(no1)}}</p> ; in interpolation typeof oprater will throw error-->
+ 
+  <!-- 3. can we pass fun. >> yes -->
 
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
+  <!-- <p>{{learningInterpolation()}}</p> -->
 
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
 
-  .card svg.material-icons path {
-    fill: #888;
-  }
+  <!-- agr fun return valu to o dom me show hogi if fun.not retern value to o undefine  -->
+ 
+  <!-- 4.
+   assignment possible h kya  -->
+  <!-- <p> {{no2=300}} </p> -->
+  <!--  :>> nhi it will through error 
+assigning value to the property from interpolation is not possible 
+-->
+  
+  <!-- 5.
+  <p>{{}}</p>
+parshl error 
+Parser Error: Blank expressions are not allowed in interpolated strings  -->
+  <!-- 6.
+  <p>{{no2==20}} </p> -->
 
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
+  
+  <!-- equality check krna possible in interpolation
+  it will give us truee and false -->
 
-  .card {
-    all: unset;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
+  <!-- incriment decriment ...kal -->
 
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
 
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
+  <!-- 12-09-23 -->
 
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
+  <!-- <p class="city-section">{{city4}}</p> -->
 
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
 
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
 
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
+  <!-- interpulation 
+    jo quchh bhi value ts me h dyrectly ui me/dom me show ho jati h -->
 
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
+  <!-- 11/09/23 : string interpulation 
 
-  svg#rocket {
-    width: 80px;
-    position: absolute;
-    left: -10px;
-    top: -24px;
-  }
+    // string intrpoletion : one way data binding technique : ts to dom/html/template
 
-  svg#rocket-smoke {
-    height: calc(100vh - 95px);
-    position: absolute;
-    top: 10px;
-    right: 180px;
-    z-index: -10;
-  }
 
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
 
-  a:hover {
-    color: #125699;
-  }
 
-  .terminal {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 6px;
-    padding-top: 45px;
-    margin-top: 8px;
-    overflow: hidden;
-    background-color: rgb(15, 15, 16);
-  }
+    //
+    i/w  Q.1  what is meant by string interpulation ?
 
-  .terminal::before {
-    content: "\2022 \2022 \2022";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: rgb(58, 58, 58);
-    color: #c2c3c4;
-    width: 100%;
-    font-size: 2rem;
-    line-height: 0;
-    padding: 14px 0;
-    text-indent: 4px;
-  }
+    ans  ->>  String Interpolation is a one-way databinding technique 
+              which is used to output the data from a TypeScript code to HTML template (view).
+  
+              //ts file me deta h o access in html file to show in dom/ui
 
-  .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    color: white;
-    padding: 0 1rem 1rem;
-    margin: 0;
-  }
+    
+    Q.2 what are different deta transmition technic in angular ?
+    
+  -->
 
-  .circle-link {
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-  }
+  <!-- 12-09-2023
+  property  define and declairation>> revison  
+  isko initialize krna hai fun ke andr 
 
-  .circle-link:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
+  MVC ::> model viwe control : means >> abhi jo architecture h angular ka o kya h component besd architecture h
+  component me  4 file hoti h > html ,css ,spec.ts ,and ts  
+  isme html viwe ka kam krta h 
+  typescript control ka kam krta h and scss spectts together jo kisi module se belong krta h 
+  to module viwe (jo ui pe dikhne vali h chije html) oor sara control jayega ts ki file se  to controlvala o sara funtionality type script ki file me likhte h .
+  
+  deffinaton ggl>>>
+   
+  //string interpolation  
+  
+deta binding  :
+1. one way data binding 
+2. two way data binding 
+ //javatpoint search deta binding 
 
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
+ i/w . Q.  what is deta binding ?
+           Data binding is the core concept of Angular 8 and used to define the communication 
+           between a component and the DOM.
+           It is a technique to link your data from component to viwe .
+  
+           one way deta binding ke sub typ exmpl >> Angular Interpolation / String Interpolation, Property Binding, and Event Binding are the example of one-way databinding.
 
-  footer a {
-    display: flex;
-    align-items: center;
-  }
+Angular provides four types of data binding and they are different on the way of data flowing.
+String Interpolation
+Property Binding
+Event Binding
+Two-way binding
 
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-  }
+i/w Q.  what a different deta binding technic in angular ?
+ Q.  what is deta binding ?
+    ans >> it is a technique of deta trancemition b/w model to dom or dom to model 
+    their r 2 majore data binding technique we have in angular their r one way deta binding n 2way deta binding
+     in one way data binding data is transfure in typescrit to dom and 
+     in 2waydatabinding the communications happance b/w dom to model or model to dom  that is a 2way deta binding
+      and in one way deta binding their are also sub types of that is string iterpolation property binding 
+      nd evevt binding or we can say in 1waydatabinding we can do 1way data binding 
+      in use stringinterpolation  ,property binding or else event binding .
 
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
+     to transfer data from  model to viwe ya fir viwe to model 
+  
+>>  detabinding a ek technic h jisse apn deta interchange krte hai b/w module to viwe and viwe to module
+mtlb ts ki file se deta jayega html file me or html ki file se data ts. ke file me la skte h.
+  jb tsse dta html ko jara h mtlb / module controll  se data dom ko jarah or templet ko jara hto o hogya one way deta binding
+ //1way data binding : 1.string interpolation 2. property binding 3.event binding 
+  or 2waydata binding means html se tsko or ts se html ko bhi data ara h mtlb dono ka communication
+   means sending and recieving togather isko bolte h 2waydata binding .
+  
+  one way deta binding me yahase deta jayega dom ko ether string enterpolation 
+ string interpolation : it is one way data binding technique : ts/model to dom/html/template{{}}
+  -->
 
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-  }
 
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
+<!-- 
+  <p>{{city1}}</p>
+  {{no1}} <br>
+  {{learningInterpolation()}} -->
 
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
 
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
 
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
+  <!-- <router-outlet> </router-outlet> -->
+  <!-- dom document object module 
+  ui user interface 
+dom /ui/ html/ template / user inrface /browser -->
 
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-  }
+  <!-- what is defference b/w = ,==,=== ? -->
 
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
-</style>
+  <!-- <p>{{"priyaaa"}}</p>  //useless this is not string interpolation -->
+  <!-- <p>666</p> // this is not string interpolation -->
 
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-  <span>Welcome</span>
-    <div class="spacer"></div>
-    <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
-      <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-        <rect width="400" height="400" fill="none"/>
-        <path d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23" fill="#fff"/>
-      </svg>
-    </a>
-    <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular" title="YouTube">
-      <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
-        <path d="M0 0h24v24H0V0z" fill="none"/>
-        <path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
-      </svg>
-    </a>
-</div>
+<!-- 
+  <P>{{no1}}</P>
+  <p>{{navv}}</p>
+  <p>{{no3}}</p> -->
 
-<div class="content" role="main">
+  <!-- 2. property binding
+  PROPERTY NAME ME SPACE NOT ALLOWED , special chqrecter not allowed ,nuber se start not allowed -not allowed, _ le lega $ lega 
+  use in camelcase...
 
-  <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
+ -->
+  
+ 
+ <!-- name: <input type="text" value="piya" placeholder="pls enter your name"> -->
+ 
+ 
+ <!-- placeholder a  dissable  formate me rhta h jo as a hint kam krta h input tag ke liye
+  or value  inable rhegi or prifiled formate me apne ko dikhana h 
+  place holder deseble format me value dikhata h  or value atribut editable .
+  jb value atribute lete h tb plce holdre decable hota h ok dono sath me ni lena h .
+  kyoki jb value inactive hoga tb place holder acive hoga  -->
 
-    <svg id="rocket" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
-      <title>Rocket Ship</title>
-      <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
-        <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)" fill="#dd0031"/>
-        <g id="Group_47" data-name="Group 47" transform="translate(165.185 720.185)">
-          <path id="Path_33" data-name="Path 33" d="M3.4,42.615a3.084,3.084,0,0,0,3.553,3.553,21.419,21.419,0,0,0,12.215-6.107L9.511,30.4A21.419,21.419,0,0,0,3.4,42.615Z" transform="translate(0.371 3.363)" fill="#fff"/>
-          <path id="Path_34" data-name="Path 34" d="M53.3,3.221A3.09,3.09,0,0,0,50.081,0,48.227,48.227,0,0,0,18.322,13.437c-6-1.666-14.991-1.221-18.322,7.218A33.892,33.892,0,0,1,9.439,25.1l-.333.666a3.013,3.013,0,0,0,.555,3.553L23.985,43.641a2.9,2.9,0,0,0,3.553.555l.666-.333A33.892,33.892,0,0,1,32.647,53.3c8.55-3.664,8.884-12.326,7.218-18.322A48.227,48.227,0,0,0,53.3,3.221ZM34.424,9.772a6.439,6.439,0,1,1,9.106,9.106,6.368,6.368,0,0,1-9.106,0A6.467,6.467,0,0,1,34.424,9.772Z" transform="translate(0 0.005)" fill="#fff"/>
-        </g>
-      </g>
-    </svg>
+  <!-- 
+  deta binding 
+  property binding [] brecates lagake hoti h or 
+ (kisi property ke ander value binde kiya hua h o deta o property o apn ko bind krni h value atribute so that atribute hamesha binding symbol [] lagana h  or jis property ki value is input box me show bind krani h o value me dalana h )
 
-    <span>{{ title }} app is running!</span>
+ dyrect direct show krna h data to sting interpulation property bnao or dom me html me {{pass kro }}
+or ager apki requrement  input box me prifikled deta bind krke rakhna h to o deta apko modul se ts se component se leke ana h to o case me property bnegi apki ts me usko bind krenge html me input data binging mthod se [value]='pass property'
 
-    <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
-      <title>Rocket Ship Smoke</title>
-      <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
-    </svg>
+-->
+
+
+
+  <!-- <br>//property binding []
+  name: <input type="text" [value]="data1">
+  
+  {{cars}} -->
+
+
+  <!-- //can we string interpulate array ? yes. -->
+
+
+  <!-- carName: <input type="text" [value]="car">
+  studentAge: <input type="text" [value]="student.age">
+  {{student}} -->
+  <!-- //? can we string interpulate object >> object object o/p  iske liye ase likhna pdega niche jaisa -->
+ 
+
+ 
+  <!-- array we can directly string interpulate bt object we do specification  -->
+  <!-- <br>{{student.name}} <br>
+  {{student.age}}
+  redio nd checkboxes
+  gender: <input type="radio">//event trigerr krna h to pta chlega value kahase ari h uske liye...
+
+  gender:
+  female: <input type="radio" [value]="genderf" [checked]="genderfemale" name="gender" (change)="gen($event)">
+  male: <input type="radio" [value]="genderm" [checked]="gendermale" name="gender" (change)="gen($event)">
+  other:<input type="radio" [value]="gendero" [checked]="genderother" name="gender" (change)="gen($event)"> -->
+
+  <!-- 13-09-23   -->
+
+  <!-- angular ke ivent ka nam change h input box ke liye  
+  js me isi ivent ka nam ngonchange   hoga 
+agr input typ = text h to event keypress keydown on blure blure focuse
+checkbox ke liye >> change  -->
+  <!-- jaise he kisi inputbox me chenge hota to uska type chenge h uska fun call hota  
+    enent tb fire hota h jb usper click krte h  jse clike kiya gen namee ka fun call huaa 
+    jisme m $event krke event pass kra h jo ts me  deta nam ke paramiter me catch kiya h
+  
+    funtion define kaise krte h 
+    function name (paramiter//paramiterless){
+      //codeblocks..}   >>
+gen(data:any){
+  console.log('data',data.target.value);
+}
+a q liya h  jo value jari h  o check krne ke liye ki ohe value check hori h ya nahi asA
+
+single selection ke liye name atribute ki value should be same 
+
+  
+  -->
+  
+
+  <!--<br> checkbox
+  hobbies: <br> <br>
+  painting: <input type="checkbox" [value]="paintinghobby" (change)="hobbies($event)">
+  singing: <input type="checkbox" [value]="singinghobby" (change)="hobbies($event)">
+  traveling: <input type="checkbox" [value]="travelinghobby" (change)="hobbies($event)">
+  dancing: <input type="checkbox" [value]="dancinghobby" (change)="hobbies($event)"> -->
+
+  <!-- 
+  this keyword 
+
+  i/w Q. decribed thiskeyword in angular ??
+ 
+-->
+  <!-- 
+h/w notes making ??
+what is meant by data binding ?
+what is deffrnt data binding tecqunic we have in angular ? ggl
+2way data binding ,1way data binding ? string inter pulation ? property binding ? 
+wht is use of this keywrd? 
+
+ -->
+
+  <!--1k pro.. jo model me bni hui h uski value apn bind kkre h kisi attribute ko usko bolte h property binding .
+ one wybin.. khi show krna ho to string interpulation krna hota h , agr input box me koi valu pre filed  formt me dikhani h to proprtybinding use krna hota h , show krna h dta ts me h property me deta h to khali show krna h strintrpol.. majorly 99%input ke liye hi pro.bin.. krte h 
+ -->
+  <!-- //eventbinding bcha 2wy dtabing component readout topic this .. -->
+
+
+  <!-- 14-09-23 -->
+  <!-- 10719
+  Q. y r u chenging ur curent job ?--finantioal as well as my devlopment growth .
+  bing human ek achha slry ke liye hi job chnge krte h
+  abhi project hogya complite abhi jitana sikha vaha pe bss hoga gya ab for a change nd finatial growth im switching my
+  job
+
+  anil sindhu ka tutorial .. -->
+
+  
+
+  <!--
+  
+  event binding 
+
+Q. i/w what is meant by event binding ?
+>>  Event Binding
+In Angular 8, event binding is used to handle the events raised from the 
+DOM like button click, mouse move etc. 
+When the DOM event happens (eg. click, change, keyup), it calls the specified method in the component.
+
+ -->
+  
+
+ <!-- <br><button (click)="submit($event)">submit</button> -->
+
+
+
+  <!-- ase event bind krke apne ko kisi input box ki value chahiye ya check box ya radio btn ki
+     value chaye to ase event fire krke o kam me event binding picture me ata h 
+     iske sath sath btn click pe kooi fun call krna h ya form liya usko subbmit krna h 
+     ya save krna h to o saver ya subbmit ka bttn rhta h jo user ka data h o backend me kidhar 
+     to server ko send krna pdta h  -->
+
+     
+
+  <!-- two way data binding
+
+  The two-way binding has a feature to update data from component to view and vice-versa.
+  Whenever you make changes in the Model, it will be reflected in the View and when you make changes in View, it will be
+  reflected in Model.
+  In two way data binding, property binding and event binding are combined together.
+   -->
+  
+  <!-- ...
+    [(ngModel)] = "[property of your component]"  
+Note: For two way data binding, we have to enable the ngModel directive.
+ It depends upon FormsModule in angular/forms package, 
+so we have to add FormsModule in imports[] array in the AppModule.
+
+   -->
+ 
+
+  <!-- <br>
+  : student name: <input type="text" [(ngModel)]="studentname">
+  <br><br> -->
+
+
+
+
+  <!--inter pulate value >> show to ui -->
+
+  <!-- {{studentname}} -->
+
+            
+
+  <!--intial level me data ara h ts se   proprty me assign kiya word h priyanka  
+  jo input box ko bind krke rkhi h proprty. 
+  to inpt box me pre filed me o value ari h sath hi ath me isko interpolat bhi krliya to 
+ deta input fild se interpolate fild  pe do jagh riflect hora h 
+
+jaise he input box me changes krte h to intrpolate kiya h vaha pr bhi chenges hota h
+q use se jse inpt ara h vhi proprty kr andr store hora h vhi property yaha pe
+interpolat krke rkhi hto dta updat hora h  h 
+ 
+ngmodel ko jo pro. bind krke rkhi hui h o updat hori h  jse inp.bx ke andr chng krre h
+ pro ki valu chnge hori h jaise he as hora h ts update hora h to o a value tho uspe 
+ always ovrrite overrite kra h jase he a hoga to interpolate  me bhi o reflect hoga 
+mtlb  initiali ts se deta ngmodel me gya bad me user ne uske andr chnge kiya quchc  
+yaha se deta vaps ts me gya  jase ts updt hua  a inrpolat vaps updat hora h
+ to ts se html module  ts hhtml ase cercal looping chalu h isko bolajyega 2way deta binding technique .
+
+-->
+
+
+
+
+
+  <!-- erroe
+1. Error: src/app/app.component.html:258:35 - error TS2322: Type 'Event' is not assignable to type 'string'.
+
+258  <input type="text"  [(ngModel)]="studentname" >: student name
+                                      ~~~~~~~~~~~~~~~~~~~
+
+>>tb usko any bnana pdega >string pe event asssigned ni krskte h isliye data type any krdiya.
+
+2..
+Error: src/app/app.component.html:258:22 - error NG8002: Can't bind to 'ngModel' since it isn't a known property of 'input'.
+>> ab mere app.module.ts file me ngmodel dyrective ko use krne ke liye jo forms module lgta h o import nahi hoga to yaha pe asa error ayega 
+
+>> related formsmodule import krana h
+:- > ngModel  directive dipends upon ng modules jo exist krta h angular forms packeg pe  to  so we have to add FormsModule in imports[] array in the AppModule.
+
+>> go app.modules.ts >> import ke arry me add krna h >> fromsModule >jo atometic click krne pr {import { FormsModule } from '@angular/forms';}
+a ajayega ya lelega vaha pr import kr lega.
+
+
+
+-->
+
+  <!-- property binding syntax [],event binding syntax (), or two way data binding ka syntx [(ngmodel)] -->
+
+  <!-- employe name : <input type="text" [(ngModel)]="empName">
+  {{empName}}
+
+
+
+  // 16-09-23
+  //VARIABLE property me difference
+  <br><br>
+  <button (click)="addition()">Aadition</button> -->
+  
+
+
+
+  <!-- angular me event binding  bresses than click -->
+  <!-- {{res}}//error propery does not esist.typ appcomponent.(variable) -->
+
+  <!-- static ka result console me check krteh means variable 
+agr addition ka result dom me print krna ho tb 
+what if deta dynamic h user se leke are h tb picture me ata h deta binding  property 
+ -->
+
+  <!--  property define krne ke 3 way h ts me
+  1. pro..name= 'value assign kro;
+  2. propertynam? :string; //declair 
+  //jb de cclear krke chodte h to o undefine rhta h .
+  3. pro.nm:detatyp=value;// dec+def 
+-->
+
+
+  <!-- <br><br>
+  <button (click)="Addition()">Aadition</button> -->
+
+  <!-- result ko dom me show krna h to  -->
+
+
+  <!-- {{ress}}
+  <br><br>
+
+  <input type="text" [(ngModel)]="Nm1">Nm1
+  <input type="text" [(ngModel)]="Nm2">Nm2
+  <button (click)="Adddition()">Aadddition</button>
+ -->
+
+
+
+  <!--  form me ngmodule use krte time error ata h jo stand alon 2 proses set krne se solv hota h  -->
+ 
+ 
+ 
+  <!-- <p> {{resss}} </p> -->
+
+
+
+  <!-- //deta h ts ke ande or o jara h fom ke ander input boxes ko >> one way deta binding.
+ab jise he quchh add kre h o reslet 100+2000=1002000 ;// oh user se kuch i/p lete h tb deta o string formate me milta h default  apne ko usko parseint krna pdta h number me convert 
+parseInt krte time property any deta type lgana h ; kroki user deta string me ata h use integer me intial levl me vaha pe numbr h to numbr me numbr convert parsint ni krta h  isliye any krna pdta h property
+isliye o eeror throw krratha ki num parsint pe ni lgega...
+
+
+>>parseInt(this.Num1)+parseInt(this.Num2)>>in ts
+o/p  > 100+2000 + 2100;
+// -->
+
+<!-- 
+a hogya dynamic deta data user se liya i/p from me bind kiya kuchh property  ko  jiase hi iske ander initialy kuchh add hora h jo user inp// me dall rha h o ara h iske ander store updt hora h
+dom updt hua vse he ts updt hua , jaise ts updt hua result updet hua 
+or result ko hmne interpolet krke show kra diya ...
+that is 2way data binding ..
+
+
+ -->
+
+  <!-- <br><br> -->
+
+
+  <!-- //ager apko usi deta type me lena h datatb
+  //1st trika >> any lgao parsint krke value lo input se ngmodule ka use krke
+  //2trikaaa -->
+
+
+
+  <!-- 
+  <br>
+  <input type="text" (keyup)="ADDITION1($event)"> n1<br>
+  <input type="text" (keyup)="ADDITION2($event)"> n2<br>
+  <button (click)="Addditionnnnn()">Aadddition</button>
+
+  <br>
+  <p> {{rs}} </p>
+
+</div> <br><br>
+
+<div class="main1">
+  <h1>hard codede data </h1> -->
+
+
+
+  <!-- angular me data : agr o static h deta to constant file se ayega jaise ka vaisa ya backend se ayega ya user quchh chnge krega uske according 
+ -->
+
+
+
+
+  <!-- <h1>{{hadding}}</h1> -->
+
+
+
+
+
+  <!-- string interpolation 
+(deta ts se ayeha dom me show hoga):- isko bolte h one way data binding 
+-->
+  <!-- ^ yahi chij variable se nahi krskte 
+ts file me variable bs fun ke ander declair kr skte h bhar kiya to o property asuume  hoga
+  vriable ko dom me pass ni krskte h
+ >> variable kb bnate h >> 
+tb bano jb usi fun ke ander value ko lekr manupolation krna h apko -->
+
+  <!--  /two way data binding  -->
+
+
+
+
+  <!-- <input type="text" [(ngModel)]="myCityName"> -->
+
+
+
+
+
+  <!-- property fatch ni ki ts me to dose not exsist vala error ata h -->
+  <!-- //ng module ko use krte time [()] a parenthesis jruri hota h  -->
+
+  <!--  user se quchh input lena h apne ko wather it is text number or check boxes radiobtn ka value jo quchh bhi 
+ bs apn ko user jo value dedega o leke ana h  jse user uske andr chnge krega quch  uske acordingly apn ko uske ander jo bind kiya h property o bhi chnge krna h manke agr o property kisi fun me fatch  kiya ho to o at the same time change hona chahiye .. 
+to iske liye hota h 2wat binding .
+ 2way data binding ap :
+ value atribute se bhi krskte ho
+ ya ng module se (majorly ng model use krte h )
+-->
+  <!-- ngmodule
+  [(ngModel)]=" property bind here   "
+isko use kkrne ke liye foroms module import krna pdega  appmodule.ts me
+-->
+
+
+  <!-- {{myCityName}} -->
+  
+  
+
+
+  <!-- ng model me bind prop.. ki valu hr jgh reflect hogi jaha o prop. use ki gyi h -->
+  <!-- <br>Q...
+what is meant by deta binding  ?fixd que...
+data binding : it is a technique to link data between a component to the  dom 
+there are two technique in deta binding one is one way data binding and other is two way data binding 
+1 . one way me  3sub types h >> that is
+ > string interpolation :>>
+syntax:   {{}}
+data jayega model se dom me....
+
+
+
+
+> property binding :
+ iske ander hm property bind krte h kisibhi attribute ko 
+// module se deta jata h dom ko 
+
+> event binding :  
+
+as pr the property updat hoti h jaise ki keyup keydown inputfiled chnge a chekboxka   a sb event h  , click event h 
+
+2. 2way data binding   
+// dom se deta viwe me or view se module me pass krte h 
+//note : 2way deta binding ke liye forms module import krna hoga ..aap module me 
+
+ni to apna app module kam ni krega  -->
+
+  <!-- Q what is ts 
+
+>>> type script is a super set of java script 
+chat gpt ask?
+open sorce programing language h jo superset h java script h js ka 
+ander ke features >> interfaces classes modules 
+
+design kiya gya h inhance large scale applications . aswell  as improve code scalability mntainability to throw the features of typescript . a dono terf clint side as well as server  side deployment ke liye use me ati h 
+widly used in web appli.devolp. and both s.....ide devlopment.
+
+-->
+
+  <!-- //klka sinario ... -->
+
+<!-- 
+    <br>
+  <input type="number" [(ngModel)]="addnumber1">
+  <input type="number" [(ngModel)]="addnumber2">
+
+  <button (click)="additionOfNumbers()">click me to add </button>
+
+  <p>{{ addResult}} </p>
+ -->
+
+
+
+  <!-- y r u chose s/w dev. filed 
+i love coding 
+ s/w devloper has like good career oportunity and as well as i have quite good intrest 
+ in codding so thats y i chose  this filed 
+ iq testing-->
+  <!-- baichatgo.. 
+gd sw dev, has full filing career choice rhti h jaise ki flaxible work hota h slry compnsetion ache rhte h ..
+-->
+  <!--  ur self
+nam  location aducation in this this yr 
+to o project puchega fir project k decriptin vgera 
+ -->
+
+  <!--
+    
+  //18-09-23: project query...
+  //19-09-23
+
+  add btn lena tha add cercal krke >> jaise clk krta h utne no of crkl ad hone chahiye>>
+  ab jaise sercl pe clck kre uska clr chnge hona chahiye or unclik kre vaps phle vala clr aneko hona
+
+  togl efect select unsilect
+  13:40pe architecture ka anse kaise dena h hint h 19-09-23
+
+  //20-09-23
+  16:22 2359
+  component mtlb ak building block h angular ka
+  component: maltiple ...modulels+directive+pipes
+  meltiple component milkr bnta h angular ka application ,
+  ng g c home
+
+  ng generate component home
+
+  chat gpt wat is component in angular ?
+  ??
+
+  //25-09-23
+  recap : 
+  databindiing >>1waydatabinding: simply data jara h ts se or bind hora h ui me
+  2waymtlv: dom me quchh change hora h uske accordingly property apni update hori h alredi property me
+   value h ni h a optional h ts se dta dom me  dom se again data ts me tis looping 
+   that is a 2way data binding  or iske liye ngmodel dyrective us me ati h 
+   mtlb jo property bind krte usme dom se jo data ayega usko apn us property mebhi 
+   ya kisi fun me bhi updat kr skte h 
+   ng modules ke liye apko forms module >> module.ts ke andr import krna hoga
+   1way.. me string interpolation: ts me property h uski value dyrectli interpolate kere h DOM m 
+
+   pro.bind: kisi atribute ko property bind kree apn so us atribute ko us prop.ke according uska value vgera assign ho jayega 
+    event bind.:jaise ki  koi fun click hua us fun se kuch deta pass hora h dom de ts me to usko bolenge eventbind 
+
+    component:
+creting cammand : ng g c componentname
+:->> ng g c home
+
+component is a building blocks of application  isme 4 file janret hokar ati h 
+component ka bunch togater modul ke andr put krte h or modul ka bunch project ke andr 
+  component : parent hoga model: iska parent hoga project.
+
+
+ng g c lading 
+4 file creat hokr ayegi 
+or modul.ts o updat hokr ayegi
+1 28 39   
+
+
+ahi ui me konsa dikhra h routing modul html file ..
+ab agr home ka ya landing component ka ui me dikhana h to usme ata h routing nam ka concept 
+ routing mtlb ak component se dusre component me rute krna redirect krna. yaha pe simple routing h or lzy loding vali routing h 
+ simple routing means : home or landingjo component bne h na o globle h mtlb a aap me bne h 
+  (deta transefr krne ke 5 trike h in future pdhenge ,deta binding alg h or deta transefr krna alg h )
+
+  filhal abhi bs ak componant se dusre componant me on click krke dusre componnt ko load krna  o hota h simpl routing 
+  isme app rout module h   routingmodule.ts imp h >> isme routing ka code likhna hota h 
+  or app module.ts me import ka code likhna hota h 
+
+ab   main html me quch ni dikhna h tb sb comment krenge 
+
+
+ -->
+
+
+
+
+
+ <!--</div> -->
+
+
+
+
+
+
+<!-- project iw snypad add circle -->
+
+
+<!-- 
+  
+  <div class="iwsnypads">
+
+  <button (click)="addCircle()">click circle</button>
+  <div *ngFor="let circle of circles " [class.selected]="circle.isSelected"
+    [style.background-color]="circle.backgroundColor" (click)="toggleSelectCircle(circle)">
+    {{circle.id}}
 
   </div>
 
-  <!-- Resources -->
-  <h2>Resources</h2>
-  <p>Here are some links to help you get started:</p>
 
-  <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/tutorial">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      <span>Learn Angular</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>
+</div> -->
+<!-- <button (click)="">Home </button> -->
 
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/cli">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-      <span>CLI Documentation</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://material.angular.io">
-      <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px" width="21.813" height="23.453" viewBox="0 0 179.2 192.7"><path fill="#ffa726" d="M89.4 0 0 32l13.5 118.4 75.9 42.3 76-42.3L179.2 32 89.4 0z"/><path fill="#fb8c00" d="M89.4 0v192.7l76-42.3L179.2 32 89.4 0z"/><path fill="#ffe0b2" d="m102.9 146.3-63.3-30.5 36.3-22.4 63.7 30.6-36.7 22.3z"/><path fill="#fff3e0" d="M102.9 122.8 39.6 92.2l36.3-22.3 63.7 30.6-36.7 22.3z"/><path fill="#fff" d="M102.9 99.3 39.6 68.7l36.3-22.4 63.7 30.6-36.7 22.4z"/></svg>
-      <span>Angular Material</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://blog.angular.io/">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-      <span>Angular Blog</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/devtools/">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M14.73,13.31C15.52,12.24,16,10.93,16,9.5C16,5.91,13.09,3,9.5,3S3,5.91,3,9.5C3,13.09,5.91,16,9.5,16 c1.43,0,2.74-0.48,3.81-1.27L19.59,21L21,19.59L14.73,13.31z M9.5,14C7.01,14,5,11.99,5,9.5S7.01,5,9.5,5S14,7.01,14,9.5 S11.99,14,9.5,14z"/><polygon points="10.29,8.44 9.5,6 8.71,8.44 6.25,8.44 8.26,10.03 7.49,12.5 9.5,10.97 11.51,12.5 10.74,10.03 12.75,8.44"/></g></g></svg>
-      <span>Angular DevTools</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-  </div>
-
-  <!-- Next Steps -->
-  <h2>Next Steps</h2>
-  <p>What do you want to do next with your app?</p>
-
-  <input type="hidden" #selection>
-
-  <div class="card-container">
-    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>New Component</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'material'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Angular Material</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'pwa'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Add PWA Support</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'dependency'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Add Dependency</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'test'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Run and Watch Tests</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'build'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Build for Production</span>
-    </button>
-  </div>
-
-  <!-- Terminal -->
-  <div class="terminal" [ngSwitch]="selection.value">
-      <pre *ngSwitchDefault>ng generate component xyz</pre>
-      <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
-      <pre *ngSwitchCase="'pwa'">ng add @angular/pwa</pre>
-      <pre *ngSwitchCase="'dependency'">ng add _____</pre>
-      <pre *ngSwitchCase="'test'">ng test</pre>
-      <pre *ngSwitchCase="'build'">ng build</pre>
-  </div>
-
-  <!-- Links -->
-  <div class="card-container">
-    <a class="circle-link" title="Find a Local Meetup" href="https://www.meetup.com/find/?keywords=angular" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24.607" height="23.447" viewBox="0 0 24.607 23.447">
-        <title>Meetup Logo</title>
-        <path id="logo--mSwarm" d="M21.221,14.95A4.393,4.393,0,0,1,17.6,19.281a4.452,4.452,0,0,1-.8.069c-.09,0-.125.035-.154.117a2.939,2.939,0,0,1-2.506,2.091,2.868,2.868,0,0,1-2.248-.624.168.168,0,0,0-.245-.005,3.926,3.926,0,0,1-2.589.741,4.015,4.015,0,0,1-3.7-3.347,2.7,2.7,0,0,1-.043-.38c0-.106-.042-.146-.143-.166a3.524,3.524,0,0,1-1.516-.69A3.623,3.623,0,0,1,2.23,14.557a3.66,3.66,0,0,1,1.077-3.085.138.138,0,0,0,.026-.2,3.348,3.348,0,0,1-.451-1.821,3.46,3.46,0,0,1,2.749-3.28.44.44,0,0,0,.355-.281,5.072,5.072,0,0,1,3.863-3,5.028,5.028,0,0,1,3.555.666.31.31,0,0,0,.271.03A4.5,4.5,0,0,1,18.3,4.7a4.4,4.4,0,0,1,1.334,2.751,3.658,3.658,0,0,1,.022.706.131.131,0,0,0,.1.157,2.432,2.432,0,0,1,1.574,1.645,2.464,2.464,0,0,1-.7,2.616c-.065.064-.051.1-.014.166A4.321,4.321,0,0,1,21.221,14.95ZM13.4,14.607a2.09,2.09,0,0,0,1.409,1.982,4.7,4.7,0,0,0,1.275.221,1.807,1.807,0,0,0,.9-.151.542.542,0,0,0,.321-.545.558.558,0,0,0-.359-.534,1.2,1.2,0,0,0-.254-.078c-.262-.047-.526-.086-.787-.138a.674.674,0,0,1-.617-.75,3.394,3.394,0,0,1,.218-1.109c.217-.658.509-1.286.79-1.918a15.609,15.609,0,0,0,.745-1.86,1.95,1.95,0,0,0,.06-1.073,1.286,1.286,0,0,0-1.051-1.033,1.977,1.977,0,0,0-1.521.2.339.339,0,0,1-.446-.042c-.1-.092-.2-.189-.307-.284a1.214,1.214,0,0,0-1.643-.061,7.563,7.563,0,0,1-.614.512A.588.588,0,0,1,10.883,8c-.215-.115-.437-.215-.659-.316a2.153,2.153,0,0,0-.695-.248A2.091,2.091,0,0,0,7.541,8.562a9.915,9.915,0,0,0-.405.986c-.559,1.545-1.015,3.123-1.487,4.7a1.528,1.528,0,0,0,.634,1.777,1.755,1.755,0,0,0,1.5.211,1.35,1.35,0,0,0,.824-.858c.543-1.281,1.032-2.584,1.55-3.875.142-.355.28-.712.432-1.064a.548.548,0,0,1,.851-.24.622.622,0,0,1,.185.539,2.161,2.161,0,0,1-.181.621c-.337.852-.68,1.7-1.018,2.552a2.564,2.564,0,0,0-.173.528.624.624,0,0,0,.333.71,1.073,1.073,0,0,0,.814.034,1.22,1.22,0,0,0,.657-.655q.758-1.488,1.511-2.978.35-.687.709-1.37a1.073,1.073,0,0,1,.357-.434.43.43,0,0,1,.463-.016.373.373,0,0,1,.153.387.7.7,0,0,1-.057.236c-.065.157-.127.316-.2.469-.42.883-.846,1.763-1.262,2.648A2.463,2.463,0,0,0,13.4,14.607Zm5.888,6.508a1.09,1.09,0,0,0-2.179.006,1.09,1.09,0,0,0,2.179-.006ZM1.028,12.139a1.038,1.038,0,1,0,.01-2.075,1.038,1.038,0,0,0-.01,2.075ZM13.782.528a1.027,1.027,0,1,0-.011,2.055A1.027,1.027,0,0,0,13.782.528ZM22.21,6.95a.882.882,0,0,0-1.763.011A.882.882,0,0,0,22.21,6.95ZM4.153,4.439a.785.785,0,1,0,.787-.78A.766.766,0,0,0,4.153,4.439Zm8.221,18.22a.676.676,0,1,0-.677.666A.671.671,0,0,0,12.374,22.658ZM22.872,12.2a.674.674,0,0,0-.665.665.656.656,0,0,0,.655.643.634.634,0,0,0,.655-.644A.654.654,0,0,0,22.872,12.2ZM7.171-.123A.546.546,0,0,0,6.613.43a.553.553,0,1,0,1.106,0A.539.539,0,0,0,7.171-.123ZM24.119,9.234a.507.507,0,0,0-.493.488.494.494,0,0,0,.494.494.48.48,0,0,0,.487-.483A.491.491,0,0,0,24.119,9.234Zm-19.454,9.7a.5.5,0,0,0-.488-.488.491.491,0,0,0-.487.5.483.483,0,0,0,.491.479A.49.49,0,0,0,4.665,18.936Z" transform="translate(0 0.123)" fill="#f64060"/>
-      </svg>
-    </a>
-
-    <a class="circle-link" title="Join the Conversation on Discord" href="https://discord.gg/angular" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 245 240">
-        <title>Discord Logo</title>
-        <path d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
-        <path d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/>
-      </svg>
-    </a>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-      Love Angular?&nbsp;
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> Give our repo a star.
-        <div class="github-star-badge">
-            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          Star
-        </div>
-      </a>
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-      </a>
-  </footer>
-
-  <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-    <title>Gray Clouds Background</title>
-    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
-  </svg>
-
-</div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- <button (click)="landing()" >Landing </button> -->
 
 <router-outlet></router-outlet>
+
+<!-- router ki dependenci enject krni pdegi 
+  constructer ke  ander  public ya fir private spacefire leke  ak Router iska ak property instance bnayenge(camlcase ) : or a exzacly capitl class bnayege jisme dependency h  
+ constructor (privat/public refrence  :class){}
+ :-   constoctor (private router: Router){} 
+ isko import krna h click se add import from'@angular/Router
+ import { Router } from '@angular/router'; asa ts file me upr inport hojayega 
+ (a node module ke andr hota h kidhr to yahase compiler uthayega isko)
+
+ab is class ko this kywrd ke sath fun me use krte h 
+
+navigateByUrl() inbuilt mthd h//this .router point consterctor meki class ko or navigateByUrl() a inbuilt fun h jo paramitrised h ike andr path pass krna pdega  
+// 'costmvalue path'
+//redirection vala code always routing module .ts me likhna hota h 
+//const routes: Routes = []; yaha pr
+//path add krna h 
+ variable name: datatype =empty arry  define kiya h 
+ initialy o empty rhega until n unless path add ni krte 
+ jaise path add krte uske ander obj bnke jayega 
+ a arrayof object h bckly
+ { path:'ezacly path navigatbyurl ko likha vala', deke 2nd paramiter Component:isme bind krnah classname jo ki uprcase title case me h}
+upr bhi o import ho jayega 
+import { LandingComponent } from './landing/landing.component';
+
+import { LandingComponent } from './landing/landing.component';
+asa
+
+waht u mean by router outlet ??? imp que i/w . use of roter oulet directive in anguler search baichat ??
+>>it is used to one component from redirect to another component to jo kucchh bhi routing ki
+ dependncy corelated code h o is directive ke ander inbuilt likhi hui h  
+by angulr time to ager a directive apn ni lgate h to kbhi bhi apna code redirect ni hoga  
+
+..quue   konsi methd ka use krke hm routing perfom krte h 
+>> naaaaaaaaaavigatebyurl()jo ki router class ke ander exist krti h
+ uska use krke hm ak screen se dusri scren pr redirect krte h /comopnent pr redirect krte h
+
+dependency ijecter mens : jiss class me apni dependencie h usko injet kr lena constructor ke andr 
+/class hoya ya serivce hogyi so that using the refrence pointer property we can use the fun inside use
+ ex.ager navigatebyurl ko use krna h to construter ke ander router  uski depency inject krna hoga yeh 
+
+
+simple routing ^
+
+QUE IN INTERVIEW 
+what is meant by dependency injectore ?
+.what is router class?
+.konsi mthode redirection perpos use ki jati h anguler me >> navigateByUrl.
+.what is router outlet ?and what is use of router outlet dairective  ??
+
+////router outlet is router directive from anguler librbry and aslo known as dynamic componunts 
+ it is usd to redirecting perpose it helps to insert component  on match by routes to be desplay on the screen .
+
+ upr ka ni ye btao itna >>router outlet is router directive from anguler librbry byy using the routr outlet we can redirect from component to componnt .
+
+
+-->
+<!-- 26-09-23
+what is meant by routing in angular :
+ redirecting from one component to anathore ;
+
+  routing? ek scrin se dusri screen pr ridirect hona isko routing bolte h routing ka prpose kya h bsckly angular ak singl pg aplicationh kyo singlpg appli.h kyoki index . html hi run hora h 
+ui me yahase bs body section me jo dikhra h o h apna rutcomponent
+jaise hi compilr compile krta h sara aplication to browser pe jo sbse phle run hora h o h index.html or intry pointh main.ts to index . html page apne ko sara meta deta lgakr rkha hua h tile hogya jo browser me title dikhta h body section mtlb ui  body section me rute component  ko add kiya hua h ak selector lgyahua h dyrectly  rutcomponentka  
+
+can we chng root component ??i/w
+yes we can chng root component and we can chng root modul as well
+bt some how jo nacesry chngess honge uske liye fil me o krne pdenge
+
+jaise ki rootmodule h yahape bust krne ke liye botstrap me that is a rutcomponent ka class aapcomponent jaise landing ko rout modul bnana h tb  landing ka selectore uthayenge(app-landing) isko as a ilement bnake index.html me dalenge o hoga <app-landing></app-landing> opning closing or uske sath sath modults me bootstrap me yahaper change krna pdega appcomponent ki jagh aaplanging jisse apn landing ko rut componet ki trha dekh skte h so kisibhi modul ko rut modul bna skte h 
+  we can change rut model we can change rut componet as wel 
+
+base url  port url  landing scrn
+jaise hi refresh krte h deta los  back kro kisi btn pe clc kro piche body cheng hori h isse o kidhr bhi refresh ni hoga pr aplication refresh hogya deta loss vaps rejnret hoga sara sara like pri intilize hoga sara ka sara to kbhi bhi apna angular ka apli.refres ni hota h index.html ka singl pg aplli.me dikhai deta h jo kuch bhi rutcomponent hota h  o lod hota h iske alawa jb kbhi bhi apn redirect krte h ak scren se dusre multiple scrn pe  tb kya hota h age age age or ack bk back hm ate h or kidhr bhi a refresh ni hota h isliye isko singl page aplication bolte h 
+ were as jo filpkar lelo  ispe kidhr bhi cki kro o refresh hojata h to a ni h single pg aplication clik krne ke bad apka tab refresh hojaye to iska mtlb a h ki a singl pg apli ni h 
+
+
+i/w y angular is called single page application?
+>>ui h na alwys  body overrit hoti h jaise he a home component pe redirect hogya to landing component jo tha ooverwrite hogya home component ke ui se  ase hi m dusre page p jati to uska uskahtml h na  dom me show hota h mtlb kbhi bhi apna application refresh ni hota h always apna body overwrite hori h yaha pe index .html run hora h alys pr evry time on click acton evevnt pe body overwrite hota h that is y angular is cald singl pg
+
+//component buling bloks of aplication jisme pice of code likha jata h like component based he architectrr h angulr ka to jo quch bhilikhana h component me likhna h or component consist of 4 file jisme ui ka code likhenge apn html me jo domme me dikhne vala html fle me logical code .ts and style sheet ka code likhenge apn scss file me .
+
+
+website jb anguler me bnate h tb alwys index .html load hoti h browser pe or hmesha apn h na every component ko overrite krte h on users acction wether it iss back handling  bs  1k hi bar  lode hota h application or bar bar bs overrit krte h ui ko khali  continew proses chlri hogi ya back kra hoga aplication kidhar bhi refresh ni hota h aplication bs ak bar lod hota h or bar bar ovrrit krte h ui ko khali usko bola jata h single page application ok
+ isko bolajaata h singl pg appli.
+
+{in single pge aplli. hole pg is not reloded evry time ,only evry time view will be chnged wive ould be overrit }
+
+{
+  component   ng g c component name    se bnate h 
+  3component h  landing,addcircal,home,...
+  evry com.. me 4 file hote h  to html  ka code sra sorted rhega html me , css ka scss, 
+  or ts ki file isme apka funtions rhega etc etc  
+  isme bhi kya h upr inport section 
+  iske niche sara files ka interconection  componet me
+  template url me html ki file 
+  styles ke liye css file,
+  or component ko jiss nam se janajayega that is selectore to a component pura load hojayega  app-landing  selector se  ye sb apn ni bnate a janrate horh automatic sara default code app alwys ara h kroki a sb app folder ke andr h  aap - landing or a landing a apna component name 
+  componet name camle case me ni likha n   a app-add-circle asa dash ayega caml case me ....
+  //or  cass  defalt iska name title case me hota h
+  
+  ab apnli reqire ment aplication  run hori h ui pe to landing screen pe apn ko landing component show krna h to routing add krna pdega >
+  defalt dikhra h rutcompo.. kyo kyoki index.html me rut lgake rkha h ab add routing >>
+   uske liye directive add krna h ruuteroutlat
+    step 1 
+ routing in angular :
+ redirecting from one component to anathore ;
+step 1  >> redme file  jakr dekho >>
+
+//simple routing 
+1.add <router-outlet> directive to app.compo.html
+2. jis compo. ko landing screen component bnana h uska >> add apth in to the app.routing modul.ts file 
+ for empty path set krro
+ ex:{path: '' , component:LandingComponent},
+//  path smal me : usme hardcoded value , component : yaha eclzacly uscomponent  tsfile ka class name  or isko import krna jruri h }
+ abb reddirection from another home 
+ to landing  ke html me btn bnao click event  pe fun bind kro jisme >> 
+ .ts   me >>us fun me lojical code>> 
+ this.router.navigateByUrl('home' path kaexactly name maints yr ui pr dikhega loginurl pr') a method likho 
+ ab jo router h uski dependeci phle 
+ construtor me add kro >>
+ constructor(private router:Router){}
+//publich private specifire  routerproperty: jo point kregi Router class ko 
+or import by blu blb clik ya Router pe op ata h 
+
+
+path match ni huva to landing not found ka error dega ...
+
+//constructer sbse phle implicitly call hota h mtlb  ts landing pkdlo ex ke liye jaise code  suru hota h to sbse phle constructor run goga bad me fun jb call krenge tb asa 
+construterko compiler khudhikhud run kr leta h baki fun event pe hi fire honge 
+
+
+
+}
+
+
+
+what is meant by router outlet ?--what is use of router outlet?
+a 1 directive h jo jo router pakeges me exixst krti h or a anguler ke routing ke liye use me ati h 
+jo routing ke liye use ati h  ani lgya ruting not possible isko html me add ni kiya to . 
+
+
+wildcardraouting :
+jb path koi match ni hoga tb o directly ak default pade pe redirect hoga >>page not found 
+>> ng g c pagenotfound   // 1component banyege..
+{path:'**',component :pagenotfoundComponent}
+isse kya hoga jb koi path match ni hoga to o simply page no found pe redirect hoga ..
+
+QUE? what is meant by wildcartrouting??
+>> this is wildcart symbol ** jnrly used in agr koi page found ni hua to page not found pe redirect krne ke liye 
+to koibhi root path match ni hua to wild cart routing di jati h 
+ kyoki as a dev. apn ko pta h ki vahape eror h to console krke dekhna h pr user ko thodi pta h o to click krta baithega to isiliye a page not found vala sinario h 
+ 
+{application 
+  nodmodule ke ande sara modules rhte h agr node module ni hoga to  module file me modules ke niche red line ayega 
+  src foldr ke andr sara devloper ka kam rhta h 
+  iske andre bhi aap nam ka foldr  jisme apn component bnayenge  ,modules bnayenge ,servises ,directive bnayege ,jo kuch major logical part hoga o app ke ander 
+  assets me : images icons vgera 
+  index.html >> a application ka sbse phle run hone vala pag h >> ui me titl shohota h or isme <aap-root> modul bind hota h jo ki component selectore hota h jisme html css bin hota h or a sb yahase  ui me sho krte h 
+  main.ts >> a appli intrypoint h >> yahase isme appmodulelod.ts hota h or iske ander declairetion ke sare component fir imports me ke modules , goloble component jitne bhi h sb yahase lod hote h 
+  style.css >> me sara css ka c
+(component apn dyrect file pe click krke bna skte h  bs 
+spect .ts or ts file me jo code default bnke ata h o  khudse likhna pdega )
+
+
+  
+
+// redirec krne ke liye < roter- outlet> html me lgana imp h 
+
+
+
+
+}
+
+component dlt krna : 
+ether right clik krke dlt maro , ya revale in file exploral jao or vaha se dlt maro 
+or jaha jaha use kiya h aplli cation me remove kro ...ni to error dega 
+
+
+
+
+ -->
+
+<!-- 27-10-23//  -->
+
+
+ <!-- 
+// 03-10-23
+routing khtm 
+  module bnana ..
+   project  conisist of multiple model >> module consist maltiple pipes component directive 
+   ....
+    
+   abhi tk 2wy binding sikha or 
+   comonent bnaye or direct direct routing kiya 
+    to asb egarly loded component h  manke chlo  200 300 component ka project h or ase hi bnate rhe to  jitna bnaoge o sara diclairetion section update krega appmodule.ts me
+    sara ka sara aaap module h na a  egarly loded modueleto a sara ka sara run hojayega ... jaise hiappli run hoga broser pe 
+  ase hi sara component open open bnate gye to droback kya ho skta h  jitna compo.bnaoge o sara  diclirection  section update krega mtlb sara egarly loded module mtlb jaise hi application lonch hoga browsr pe tb aap module sbse phle load hota h  land hota h to module ke andr jitna bhi a apka component hoga moduls hoga sara ka sara load hoga to agr 200 compo h apli me to 200ke200 1 rwo me hi hi land hojayega 2oo compon ke sath bwsr pe isme kya hota h na 200 compo me havy data hogya api call hogya to apke manke chlo apke 200 me se 100 component 50 me initial levl pe  bhotsare api call h to bhotsare  apicall hit hone se kya hogya load agya apki application pe to at the same time koi bhi  1row mw itna sara apicall mrega to kya hota h na application freez ho jata h iske karn application proper dikhe ga ni ui pe freez ho gyega iske karn apka apli dikhega ni ui asa bubling hota rhega so a drobak ko avoid krne ke liye  lazy loading concept aya 
+  piture me  angular 8 onwrd 
+  lazy loading me kya hota h na jitna bhi jarurt ka cize h mtlb landing dash bord pe ui pe user ko dikhana h utna intial level pe apn apli ka part lonch krege utna hi load krenge uske bad as pr the requirment  mtlb jaise  bnda jaha jaha click krega o part lonch hoga  to as pr the user requirement baki sara loanch hoga  to itna sara lod ni aya 1 sath 50 component lod krne se acha jaisa jsa usr clk krega on action usr se kuch na kuch lod hora h to isse kya hota h apna jo lod h appli.ka o h na part me devide hojata h sara ka sara appli load ni hoga to freez ni hoga to a sb ke liye lazy loding concept me ayi 
+  
+  what is meant bylazy loading ? i/w 
+  tell me about lazy loading concept ?
+
+module bnana:
+phle appmodule.ts dekhenge to jitne globle component h utne hi run hore h 
+baki kuch ni lodhora a module tk tbhi pohchega jb user kuch hit krke click krke action prform krke us tk jayega lod krega ok
+
+routing mnj tecnicql wrd redirection mnj ak screen se dusry screen smanrthi wrds 
+routing sylbas concep 
+
+abhi  module bnayenge or module ke andr apna component 
+: 
+module janereting command :
+ng g m modulename
+
+ahi jaise apne  apli ke 3 ownr h student  woner  hogya or  user 
+ng g m student 
+
+isse apna module bnega  jb itna hi likhte h tb isse bs apna studentmodule.ts  file bnega 
+bt apne ko  routing bhi likhana h kyoki us module ke andr uske uske componnt bhi rhenge ui ke according ly  
+to isliye yaha pe jayega 
+ng g c student --routing 
+isse 2 file bnegi 
+1.student.routing 
+2 student.module.ts or {1k component bnega >> a chengess anguler 16 ka h  14 me ni bnta tha }
+
+ager a ni dalte --routing >>
+ng g m student --route  // ng g m student   
+>> isse bs 1 file bnegi module.ts vali
+jb student is website ko login krega to uske uske hisab se  chenges hota jayega asa hota h jaurny vise to abhi student ke related jitne bhi component homge jaise ki home student home hogya ya dusra kuch to iske andr bnge o component ,
+ajo module h indipendent h iska app module ke andr iska kuch bhi a refrence  ni h  to m yaha pe console log marti hu or apna application refresh krti hu to  ('student module....') application relonch hoga 
+{abhi console kiya to bs app module lod hoga 
+yahaper apna app module jo h na egarly loded mokdule h to bs uska console print hua yaha pe kidhar bhi studentmodule ka print hua ni until n unless usko lod ni krenge manuali mtlb usr jb tk click krke ustk phochega ni tb tk ye  yaha pr load ni hoga 
+ uska console dikhega ni asa hota h 
+mtlb app module egrly lodede h  iske ander jitne component linking the globly bne the to o sara lod hoga  click krne pr idhr udhr redirect hojayega aram se bt student ka module ka asani h usko abhi tk load hi ni kiya
+mtlb base url ke sath application me bhi load nikiya or usre kidhr click kiya h kuch path vath bhi add nikiya bhitk to abhi jaise iska jo component h student ka istk mujhe phocha h  (student component )  ya isko hi landing screen bnani h is compo.ko
+to iska path add krenge router ke ander 
+studentrouting module>>
+[path:'studentHome',component: StudentComponent] emport bhi kiya
+ab iss student compo tk phochne ka routing  student routing me likha iska internl routing 
+pr ab 
+student module tk phochne ka  rputing app module keander likhna pdta h 
+module ko phle load krenge na to ab load kaise krte h to jb module ke andr 
+
+a student independt module h iska kisi dusre component ke sath ya fir a modules ke sath iske sth koi talukat ni h app asa bolskte ho ki pura ak  project h or andr alg alg modules h ab student component ke ander alg alg component bnenge uska routing pn studnt modul me likhenge bt phle is student module ko hi phle initialize krna pdega to o vaya app routing hi hoga 
+ bckly lazy loding concept ke throw hoga ..
+lazy loading syntax search for module 
+:>>
+
+student module ko ui  sceen pe lanah 
+abhi tk vaha landing component dikhra tha 
+:- ladingcomponent html  me >> btn bnao  
+
+
+appmodule ke indr jitne bhi h compponent initiali load honge or dusre kisi module ke as pr the usr action lod honge isse apna network trafic apna aplication browserload km hojata h ak sath sara lod lene se btr o thoda thoda lode leta h apli lender hota h that is the lazy loding concept .
+jo egrly loded m.c h o load hojayenge fst ,uske bd as pr the user requirement baaki ke module dhire dhire lode hojayenge 
+lazy loding  acchive krte h loadchildren mathode se ,use lazy loading network trafic kam krdeta h ,(inspect pe network secton me sare ke sare apicalls dikhte h to o network pe jo trafic h apicals are h rsponce jare h o sara ka sara trafic jm hojayega network frez hojayega load application ka reduce krdeta h ), apna aplication light wait or smooth bn jata h 
+this r th uses of lazy loading ...
+[
+student module creat kiya >>ng g m student --routing
+1 ruting file 
+2 module.file bnke ayi. 
+openterminl on studentmodule >> creat componet >>ng g c student
+//4 file bnke ayi
+ab ui pr  globle vala landing component  h usme html me buttun bnayi studentmodule () isko >> landing .ts me  define kiya 
+this.router.navigatebyurl('')
+(' phla path jayega lazy loding ka  means is module ke main root module ka path   /dusra jayega us  ke component ke module ka ')
+
+  studentModule(){
+    this.router.navigateByUrl('studentmodule/studentHome')
+  }
+
+
+path decleare : 
+1. app-routing.module.ts file me>> module ka lazy loading vala path
+ { lazy loading syntax: 
+  path: 'item',  
+   loadChildren: () => import('./items/items.module').then(m => m.ItemModule)  }  
+
+{ path: 'studentmodule', loadChildren:()=> import('./student/student.module').then(m=>m.StudentModule)},
+                                                      is folder ke ander a file h ).then()
+
+
+2.  fir us module ke ander ke component ka path usi module ke ander 
+student-routing module.ts >> internal routing module ki 
+const routes: Routes = [
+  {path:'studentHome',component:StudentComponent}, ]
+
+]
+//intry point se hilode hota h app module main .ts se ....
+isliye console me aapmodule run horah uke ander ke sare com.pips directive jitna sb h direct run hota h or fir  user jaise hi created modul ko click krega tb evry click ke hisabse o pertikulr modul lod hoga 
+redirect krega ..
+//jb local com bnate h tb app module ka declaration secton updt hota h pr jb modul ke ander compo, bnate h tb uske module ander ka uska uska update hota h declarion section .
+
+
+
+
+
+-->
+
+
+  <!-- //manualyywork.. -->
+<!-- {
+  ng g m student --routing>>
+  \myproject> ng g m student --routing
+CREATE src/app/student/student-routing.module.ts (250 bytes)
+CREATE src/app/student/student.module.ts (284 bytes)
+
+>>>>     opn terminal on student modulle creat componet ....
+
+ng g c student
+CREATE src/app/student/student/student.component.html (22 bytes)
+CREATE src/app/student/student/student.component.spec.ts (566 bytes)
+CREATE src/app/student/student/student.component.ts (207 bytes)
+CREATE src/app/student/student/student.component.scss (0 bytes)
+UPDATE src/app/student/student.module.ts (372 bytes)
+
+}
+{
+  ng g m std --route   
+  CREATE src/app/std/std.module.ts (189 bytes)
+}
+{
+  ng g m stds 
+  CREATE src/app/stds/stds.module.ts (190 bytes)
+
+} -->
+
+<!-- 
+  //repeat  all  4-10-23
+  vaps pura ka pura routing module create krke 
+  hom landing jo component bnaye o globle component h kyoki o app ka direct child h .>>
+  4file bnke ati thi or appmodule .ts updat hoke kyoki 1khi component tha to uska dicleation updat hokr ata tha 
+(*konse bhi moduleko  rute module bna skte h i/w yes)
+
+multiple modules>> project bnto >>  >>modules me>>component mltiple derective pipes servises abhi
+
+module me bs 2 file bnti h
+module.ts 
+routing module .ts 
+
+routing module .ts ka use kya h ?? 
+>>routing related jo code h rut ka path aso component aso kiva lazi loading aso 
+or module me >> jo kuch egarly loded component ahet module ahet tte  ithe add akto manulyi ni o darict direct add hota h modules manualy krto add ,bakicompo direct hota h 
+3q?aap module .ts ko change kr skte h kya >>
+yes bt jo nececity chenges h
+main.ts me appmodule ki jagh us module ko likho :yahase as a rute module boost hota h isliye yaha chng
+idex.html me rootcomponent ki jagh uska root component replace krna pdega 
+admin landing ka root component change krna ho to ??
+
+appmodule.ts me botstrap me [appcomponet ]ki jgh uska nam replace krna pdega 
+
+aplication sumth run krnya sathi feez ni ho iske liye apliction lonch se phle uska pproper landing hone ke liye aplication part me lonch krnna best idea h 
+sb ak sath krne se acha as pr the user requirement jith usr la jaych ahe tith api call krne deta ghene tyanusra screen over rite krn  ..
+lazy loading me kya hota h jo jaruri h nacesity  componet phle load krache globle component honge or abaki aspr the user reqirment bakiche module tyatle componet lod kertjach 
+ isse 1row mw applicationka load badhega ni to km hojayega sooth lightwt appli or khi freez n hone wali appli end user ko de skte h that is the use of lazy loading 
+ 1 25 5
+ lazy losding asto multiple componet bnana multiple module ke ander or as per the reqir. as pr the need 1k 1k add krna 
+
+ module bnaya ng janret module modul nam --rouring 
+ 2 file bnn iska declaire.sec. tb update hoga jb iske andr compo bnayenge 
+
+ roting vala routing me cod
+
+(
+  admin ke ak component se dusre pe jana ..
+  adminlanding se landing pe ..
+  
+  opn terminal admin module >> creat adminLanding compo>>ng g c adminLanding>>  4file creat ,admin.module.ts updated>>
+  
+  adminLanding html >> creat btn bind (lan2) 
+
+)
+{
+  debugger:=> 
+}
+///as per  the user requirement hm thoda thodda load krre usko bolte h lazy loading .
+//pre loading egarly loadin or lazy loading ???i/w
+rootmodel egarly lloading me ata h mtlb o pura ka pura o appli.linch hote hi pura egarly load hojata h sara ka sara appmodule.ts..
+preeloading mtlb egarly loading ke phlebhi koi component load kr skte h 
+lazyy.... as pr th requirment apn module koload krte jayenge module ko load kiya uske ander ke component jitne h o load hote jayenge asa that is lazy..  isko acchive krne ke liye .
+jaise simpl routing ke liye simpl path liya vaise lazy loading ke liye syntax 
+
+a vala h ^
+loadchildrn mthd inbult mthd h angulr ki baki ke funtion o externly call krna pdta h explixitly vaise isko call ni krna apdega a dyrectly implictly call hota h by angular compilr 
+lod.. chi.. mthd ko sbse phle =>op. se import kiya pth btaya ./within thisss foldr /uske andr ...module name ka foldr h usko import kro )import krne ke bad ab jake o rdy hogya b/w ;land krne ke liye  then usko intialize kiya yaha se compiler boost hota h admin module boost hoga or routing modul ke ndr jump hoga yaha pe lodhogya dusra path match krega  jo jo component ka hoga vah pe jump krega that is the logic bihaind it thas it .
+syntax bs yad rkho 
+globle fun pe redirect krne ka syntax:
+path: value''', jis component pe redirecthona h o path
+
+agr ak component se kisi module ke andr ke component pr redirect hona ht to
+lazy loding consept vala path 
+shortcut kl bataungi14 ka feture ho 
+
+:
+
+{ 
+
+\myproject> ng g m admin --routing
+CREATE src/app/admin/admin-routing.module.ts (248 bytes)
+CREATE src/app/admin/admin.module.ts (276 bytes)
+
+  \myproject\src\app\admin> ng g c  landing2
+CREATE src/app/admin/landing2/landing2.component.html (23 bytes)
+CREATE src/app/admin/landing2/landing2.component.spec.ts (573 bytes)
+CREATE src/app/admin/landing2/landing2.component.ts (211 bytes)
+CREATE src/app/admin/landing2/landing2.component.scss (0 bytes)   
+UPDATE src/app/admin/admin.module.ts (368 bytes)
+}
+a initiali lod ni hoga bs app module jo root modul h uske andr jitnne component h  o lod honge globl sb 
+ab a jo created module h o initilay user action pe lod honge bs to isse  application pe uska lodni ayega 
+admin module .ts me log lgaya to a tb dikhega jb amin modul urn hoga tb
+
+ 
+ -->
+
+
+<!-- 
+//05-10-23
+new folder bnake sb recap 
+vs>> new folder (newAngularpro)>>new project- ng new angProject
+>> 
+ 
+
+
+
+
+  -->
+
+  <!-- 
+    //7-10-23
+
+
+
+    
+   -->
+   <!--
+     //08-10-23
+    
+     what is used of reactive forms ?
+
+    Abhishek N
+
+this form is used to create complex form with custom validation rule
+More control over form validation and error handling Better support for complex forms with dynamic fields Improved performance and scalability for large forms Easier integration with third-party libraries and APIs
+
+
+
+  
+  
+  -->

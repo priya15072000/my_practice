@@ -1,0 +1,49 @@
+.main{
+
+    background-color: aqua;
+    height: 90rem;
+    width:90rem;
+// download 4d image opnfolder> vscode assests >opn fileexploral> than opn asets >move the image chng imagname > vs me asest me new folder creat >>images move the imgthatfolder creat path >> scss /assest/images/imagename.jpg
+
+    //background-image:url(/assets/images/4dd.jpg) ;
+    background-repeat:no-repeat ;
+    background-size: cover;
+}
+// px chota unit hota h rem bada unit hota h
+//1rem means 16px  (root - em)
+
+//mongodb kya hota h?>> detabase hota h means form fill krte h tb deta kidhar to unke server pe store hota h to mngo db backend hota h nodejs me mngo sikhayenge backend ke liye
+//signup deta //details fillkrah o dta uspe rhta h
+
+//
+.title-section{
+    color: aliceblue;
+    margin: auto;
+    text-align: center;
+}
+.c{
+    color: rgb(166, 25, 25);
+    font-size: 30px;
+}
+.city-section{
+    font-size: 20px;
+    font-family: 'Courier New';
+    color: blue;
+
+}
+.nav{
+    background-color:blueviolet ;
+    //w3 scl jase design krne ke liye side nav footer  or usko possistion se set krna pdega 
+    
+}
+.main1{
+    background-color:rgb(21, 77, 79);
+    height: 90rem;
+    width:90rem;
+}
+
+.iwsnypads{
+    background-color:rgb(202, 234, 97);
+    height: 90rem;
+    width:90rem;
+}

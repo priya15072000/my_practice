@@ -1,0 +1,68 @@
+<p>test works!</p>
+<div>
+<button (click)="back()">Back</button><br>
+<!-- 
+    cars:string[]=['swift','bmw','jaguar','audi','creata'] // specific deta type ka array..
+car=this.cars[1]; //bmw
+student={name:'om' ,age:23}; 
+-->
+
+{{cars}} <br>
+<!--swift,bmw,jaguar,audi,creata  -->
+{{cars[2]}}<!-- jaguar -->
+{{car}} <!-- bmw -->
+<br>{{student}}<!-- [object Object] -->
+<br>{{student.age}} 
+<!-- 23 specific obj valu -->
+<input type="text" [value]="cars"><br>
+<!-- swift,bmw,jaguar,audi,creata -->
+<input type="text" [value]="student">
+<!-- [object Object] -->
+<div><input type="text" [value]="student.age"></div>
+<!-- 23 specific obj valu -->
+<div><input type="text" [value]="cars[1]"></div>
+<!-- bmw -->
+<div><input type="text" [value]="car"></div>
+
+</div>
+
+<div>
+ cast 
+  obc  <input type="radio" [value]="castObc"  name="cast" [checked]="obc"  (change)="get($event)"   >
+  genral<input type="radio" [value]="castGenral"  name="cast" [checked]="genral" (change)="get($event)"   >
+   sc <input type="radio" [value]="castSc"   name="cast" [checked]="sc"  (change)="get($event)"  >
+   st <input type="radio" [value]="castSt"  name="cast" [checked]="st"  (change)="get($event)"    >
+
+<br>
+   <button (click)="sev($event)" >save</button>
+
+checkboxes 
+singing <input type="checkbox" [value]="singing" (change)="ch($event)" >
+dancing<input type="checkbox" [value]="dancing" (change)="ch($event)">
+playing <input type="checkbox" [value]="playing" (change)="ch($event)" >
+</div>
+
+
+<input type="text" [(ngModel)]="studentname">{{studentname}}
+<input type="text" [(ngModel)]="employenm">{{employenm}}
+
+
+<button (click)="addition()"> adition</button>
+<!-- {{res}} static( variable) cnsole krke result check krna pdega   -->
+
+<button (click)="subtraction()">subtraction</button>
+{{ans}} <br>
+
+<input type="text" [(ngModel)]="nb1">
+<input type="text" [(ngModel)]="nb2"> 
+<button (click)="sn()" >addsoln</button>{{soln}}
+<br><br>
+
+<!-- eventbin.. -->
+<input type="text" [value]="n1"  (keyup)="nn1($event)" >
+<input type="text" [value]="n2" (keyup)="nn2($event)">
+<button (click)="finalansr()" >addsoln</button>{{fans}}
+
+
+
+
