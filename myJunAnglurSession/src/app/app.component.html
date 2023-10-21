@@ -1,0 +1,381 @@
+<!-- //5-10-23
+    1.new project >> ng new myJunAngularSession
+    2. redirection ke liye  html me router outlet directive add krna jruri h a ni lgaya to ak screen se dusre screen pe redirect ni kr skte h .
+
+    3. creat globle component 
+    ng g c landing 
+    { projectname /terminal >> a app folder ko update krta h app ke ander bnega a or jaise hi compo. bna / appmodule.ts defalt update hua or 4 file bnkr ayi mtlb a pura part hua egarly loded jaise hi pura compile hoga  project a component bhi usme load hoga jaise hi appmodule egarly lodedmodulh o lod hoga a globle bna compo. bhi load hoga 
+    }
+    4. lonching screen bnana h landing component ko :
+    abhi tk apphtml dikhraha tha kyoki index.html se root conent tha routeroutlet iska .
+
+    >> approutingmodule.ts   me  ath add krenge arryof object me 
+       [
+       { path:'',component:LandingComponent}
+       ''empty path ke liye jo koi compo. use krna h o lenge usko import krenge uspe hover krke 
+       ] 
+
+     5. module creat : ng g m principel --routing
+     >> 2 file bnke aywgi routingmodule.ts , module.ts
+    
+     6. principel module  >> opn terminal cerat component 
+        . ng g c principelHome    >> creat 4 file / update 1 file principel.moduel.ts 
+
+        .ng g c studentHome         creat 4 file / update 1 file principel.moduel.ts 
+
+        . ng g c teacherHome         creat 4 file / update 1 file principel.moduel.ts 
+
+
+     7. landing screen se prininciple ki home screen pr jana h 
+     button on landing html >> JESE ISPE CLICK kre module load hona chahiye or principelhome component dikhna chahiye 
+     >> fun bind kiya click event pe 
+      >> landingcom.ts me  constoucter add kro >> rouer ki dependency import kro >>
+      or fun me router class ko redirection ke liye  lo usme path attach kro >>
+      :( jb kabhi module ke ander ke component tk pohochna h to 2 path ate h )
+      {
+          constructor(private router:Router){}
+
+  principelHome(){
+   this.router.navigateByUrl('principel/priHome')
+  }
+      }     
+
+
+
+      8. routing me path define kro >>
+         1.  lazy loding vala  module tk pohchne ke liye 
+      >> approuting.ts  > 
+     { path:'principelModule', loadChildren:()=>import('./principel/principel.module').then(m=>m.PrincipelModule)}
+
+     // path:'hardcoded', loadchildren:()=> import('./folder/folder.module')same path ke ander 1 principle fldr h uske andr h prinmodule asa fir
+     .then (m=>m.module ko initialize krna h principlemodule )
+
+     2. mod.ke componet ke routing ka path :  
+     principelrouting module.ts >>  
+      {path:'priHome',component:PrincipelHomeComponent}
+
+   9.   principel module lod hora h ya ni check krne ke liye cnlog lgayenge >> principel module.tsme 
+        ager console me print ni hua mtlb module load ni hua .
+
+// can we change root module? yes 3 jagah chenges krna pdega 
+1. main.ts me jo ki module apko lena h yaha uss modu.kiclasska name add krna pdega  > appcomponent kijagh
+
+2.index.html : <app-root> ki jagah us module ka likhna pdega 
+ 
+3. us module ki routing file me bootsrap lgana pdega .
+//can we change rootcomponent yes 
+//wich mthd we r using in lazy loading >> loadChildrenmathd
+
+// what is use of routing file ?>> rot related path likhne me 
+
+//what is use of module file >> compo.directive ,pipes // or jo koi indipendendt module h o add krne ke liye 
+
+  10.  ab prihome pe 2 btn bnayenge principel ligin principel signup
+  11. prin.mod. pe 2 component creat krenge 
+  ng g c principelLogin
+   ng g c principelSignup
+   
+   12. principle routing file me  me in dono ke path ad krenge  
+   13. prihome btn ke signup fun ko ts me define krenge >> constucter ,or iski class ko path ke sath signup fun me ....
+     constructor(private router:Router){}
+
+  signup(){
+    this.router.navigateByUrl('signup')
+  }
+  14. debuger : 
+  on action pe click fun call hora h ya ni o check krne ke liye 
+  >> function pe ts file me console pe debuger lgao ya 
+  ts file me debugger word likho fun ke upr 
+ manualy debugger likhkr 
+ tisra console log lga kr check krskte h fun call hora h ya ni 
+
+ ///what is use of debugger keyword ?
+ >>it will add debugging point  in ur code at th time when ur localy traing somthing if u want to debug ur coad using debugger keyword u can debug essyly ...
+/2debug coad localy..
+testing prps manualy test krke hogya fir isko remove krna pdega 
+  
+
+ -->
+
+<router-outlet> </router-outlet>
+
+<!-- 
+   //8-10-23
+ //forms :-
+  what a different forms we have in angular ?konsa kb use krna h or diffrence dono ka in i/w que ??
+  
+
+  >> there are 2 different forms we have in angular that is template reven form and reactive form 
+   
+// bacicaly agr apka form chota h  jaise login form usme  user nam passwrd 2 3 filed hi h like login ya sign in jisko bolte h ase form ke liye template reven use kiya to chlta h jahape costom validation jada mtlb nahi chahiye ya inbit validation h mtlb thode bohot utna use kiya to chlega o sinario me chote form ke liye bckly template reven form use me ata h jo majore big forms h jisme costom validation bhi chahiye inbuilt validation bhi chahiye or proper bade bade forms h quch data student h ya user se lena h oback end ko store krna h o scnario me reactive form jada use me ate h so this are the some deffrencece or syntax ke liye bhi dono me bhot defrence h 
+182
+
+ reative form 
+riactive form bnane ke liye formgroup ad krna pdata h 
+  syntax: [formGroup]='isme pro.bind krnge jo eczacly form name  hoga '
+// iska deta type any bhi rkh skte h  ab formGroup ko import kro : angular ke form me iske npm ke pakeges h /formGroup specific deta type dediya 
+   //8 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+a cant bind vala error h mtlb apne ko madule.ts me module import krna pdega ...
+>>principelmodule.ts>> import me.>> ReactiveFormsModule add and import 
+{  imports: [
+    CommonModule,
+    PrincipelRoutingModule,
+    ReactiveFormsModule ,
+    FormsModule
+  ]}
+
+    //form ko builder me define krna h 
+//FormBuilder/constuctor me builder import add krna pdta h ..
+
+
+fb jo builder ki class ko point krta h iske ander alg alg mtd hoti h usme ka select kiy agroup a accept krta h object 
+group a inbuilt mthd h jo formbuilder pclass ke ander axixst krti h iska use krke apn ak ak input filed ka controll define krenge 
+controll mtlb  a jo formcontrolname   dala h isko define krenge abhi
+a object accepyt krti h mthd >. iske ander jayega phla jo userName likha h o abhi a aary ko accept krta h []iske ander ager value dalni h dalo ni to empty rkho'' , 
+1st oth endex pe value rhti h us pertikulr input box ki ng secnd arry[]rhta h jiske andr apn validations lgate h  jaise validation lgane ke liye yaha validaters.required/minlenth/maxlength  jo kuch bhi h o 
+ is validaters ko phle import krna pdta h 
+ mtlb validation ke liye  ary me [first value '',or secnd iska valideters ]
+a siska syntax h  a validation sb arr ke liye h biyond 10 charatr apn eeror show krenge 
+recap3735
+32/37
+
+
+
+//
+
+  name atribute  angular me change  formControlName se jana jata h input filed  ki value  isko  map hogi /input filed me user jo value dega o value  isme bind hotih   
+// cant bind vala error aye to kuch import krne ka chut gyah module.ts file me 
+
+1. forgroup ke liye  reactiveformsmodule add or import krna pdega primod.ts me 
+2. formsmodule 2waydeta binding ke liye import krdo..
+
+FormGroup a inbuilt data type h isko import krna pdega isko any dal skte h pr as pr the standerd reactive forms ka property always formgroup type ka  hona chahiye 
+formcontrollname atribute is use to give name the perticular input fild or iska control krne ke liye name dene ke liye a use me ata h corilated name static de diya jo bhi dena ho 
+
+ngOnInIt(){} a ak life cycle hook h a ak funhihota h isko call krna ni pdta a internly call hota h compiler internly call krta h isko 
+pageload pe form load krna h to ngoninit ()me  funko call krenge kyoki a intialicomple hota h 
+
+
+//
+
+
+
+
+jb jb reactive forms 2way deta binding use krenge tb FormsModule or ReactiveFormsModule import krna hota h module ke ander >> uske bad jaha form bnana hvaha form tag uske ander ak atribute h formGroup o leke usko property bind kiya formnam ki a property ko define kiya ts me FormGroup nam ki banayi usko importh kiya a property ab bnegi form type ki mtlb pura form controll is property ke control pr sehoga  abhi just a hogya form ka nam a property name h o is form ka name h is namse a pura form jana jayega ,>> is form ko bs declear krke choda tha ab usko define krna h  to fun ke ander = sign h mtlb isko kuc assign kre h kuch value isko asign kree h 
+phle ak value dali user name :  to a formcontrolname  atribute ki value h ,to a user name h isko formsejod dia h isme mtlb ab jake a input filed form ka hissa bna ,  ab a difife krte time fb (builder)
+asa likhana jruri h a uska syntax h builder ka  ab builder kya h >> to formbuilder ak class h uske ander alg alg mthds h funtions h jiska use krke apn a forms ko define krte h >> to sbse phle  constructor me fb ki dependency import ki  forms builder is package pr dependent h apna reactive form to isliye is dependency ko constru. ke ander ad import kiya isko ak refrence pointer property bnai jopoin kregi fb is formsbuilder is class ko >> to is property ka use krenge ths. keywrd ke sath this.fb.group >> group ak fun h a fun kya acept krta h as a argument a bs obj koaccept krata h isliye object pass kiya object me  username (controll ) pass kiya : or[ ]ak arry pass kiya uska value 
+>> to hmesha controll ka value ary me hota h first paramiter a perticular inputbox ki value hoti h ans secnd hota h o []arry hota h o validetions ka aary hotah yaha pe costum validetion hota h ya inbult validation lelo (required,maxlenth ,minlength ..etc ) ..
+
+ ab ak submit buttn bnayi usme fun bindkiya  // deta lenge consol krke dekhnge 
+  this.prinncipelforms.value//se formsdeta consollog me milega
+
+
+  [
+   . reactive form bnane ke liye  reactiveFormsModule ad import krna jaruri h 
+   . form ko [formGroup]='formname...' property bind kro tb o reactive bnega 
+   .is property ko declaire kro ts me or iska data type formgroup deke isko import kiya . error ke liye optional !bnado
+
+   . consturcterr me form ki dependeci iject kro , builder kya ak class h dependency h jisko imoprt kiya upr apni jiske ander group nam ka funtion h jiske use se form ko define krna h 
+   . jb page lod hoga tb is form ko dikhana h isliye ngoninit () me isko call kiya // ye life cycle hook h jisko compiler automatic initiali call krta h   constuctor ke bad
+   . form ko define krne ka code 
+     this.principelForm = this.fb.group({
+      userName : [],
+      emailId:[]
+     })
+     this.fb.iske ander group mthd h / ab kyachij kiske liye dere h  uske liye contrilname diya  control define kiya input box ko ab yaha jisme obj. me control define krte h 
+   . ab a fun ng on it se call kiya jata h or isko difine niche kiya jata h
+   . btn bnake funbind krke value check ki kya milri h o a milegi object key:value paire me 
+   .   
+   
+   //chTat gpt  14:00
+   difference b/w reactive and template driven form in angular?? i/w
+   >> riactive forms are more scalable and maintenable specily for th larj complax form ke liye apn jada use krte h  first point
+   . 2nd . costum validation apn reactive form ke sath ache se creat kr skte h ,
+   .       reactive form ka pura control jo hota h o ts file me rhta h so pura control uska vaha pr rhta to vaha se ap coustom validetion vgera use krke ibuit validation use krke pura form ko ache se ap control kr skteho ...a 3 poin reactive form ke bare me bta skte h 
+   
+   // template driven form 
+   this are based on 2way dat binding 
+   //major diffrence a h  template driven form iska pura control jo h o html file me rhta h mnj dom mndhe asto iske liye costom validation tumhi aply kru shkt ni where as reactive mndhe costum validation tumhi deu shkta ,
+   tempdri.. form mndhi fkt tumhi inbuilt validation use kru skta tyach brobr hea achive kel jat temdrifo. chifunlity 2waydeta binding ni so achya mndhi two way deta binding impliment krnar ahe apn so 2way bin ni purn prteck fild cha control ghetla jato ani value ghetli jate and 2dbin. apn reactive fom mndhini vaprat .....
+   
+   \
+
+   //simple routing using selectore hoti h bhi
+
+  ]
+
+/// 08-10-23// reactive forms 
+
+agr module me  bhotsare component h or usme  2  ya 2se upr me hm riative form bnarhe h to dependecy reactiveFormsModule  a sbke liye bs 1k hi bar  import add 
+krnte h dbl kiya to o  
+: error dega : duplicate identifire vala error deta h .
+//kuthla hi module , kuthlahi directive  fkt ak davch import ad kracha asto
+
+:>> FormGroup ko deta type ni bolskte a ak property form ka type
+
+: oninit q liya kyoki jb compo. lod ga tb a automatic call hoga 
+
+validation : reactive form ka sara control ts file me hota h/ means yahase ap  validation ko controllkr skte h  chahe o inbuilt ho coustmize ..
+
+//reactive form chi defination ?ggl
+>> reactive forms folows model-driven approch to handel forms input // mtlb user kuch bhi dom me i/p me value jaise hi chnge krega  uske accordingly ap uspe  controll krskte ho  wather it is coustom validation ya fir inbuit validation  use krke a hogya  1st use
+iske sath sath a forms r ;lik  majorly use jaise uska  complax form creat krne ke liye ya fir long deta lenah user se o senario me apn reactive form ka aproch krte h 
+what is use of reactive form upr ke poin bologe ?? uske sath 
+they r isy to test . , 
+
+reactiveforms:
+r..f.. are more robust.  /reactive forms ar more redable 
+       are more scalable , testable ,and reusabel.
+      reative forms me apn costom validation laga skte h  3rd point 
+      ....form ko controll krna esy hota h as compaire to template driven form kyoki iska sara controll ts file me rhta h complax and lajj form uske liye a form use me ate h a 4 point  reactive form ke liye ..
+ reactive f  we can prefer for the complax form for the larj i/p filed forms  and iske sath sath costum validation/ if u want 2 coustumize  validation that is possible to using reactive form 
+ 
+ 
+ template driven form :
+ 
+  a kb use krna h jb small form bnana h jaise login form ya signup form bnana h jisme validation itna mtr ni krta h coustum validation ki jarurat ni ah /validation mtlb mtr krta hi h form m asa kuch bhi i/p ni lete h coustum validation ni krta h so o case me template reven form use krenge  template direvan fo. ke liye ngmodeldirective us me ati h were as  reactive forms ke liye like apn builder ka use krte h   
+  so templatedriven form mainly use for the applications were lik bacik form logic is required ,basic basic forms ke liye chote form ke liye a use me ata h 
+  
+  
+
+  apn abhi validation rules dekhre h 
+  span tag liya : usme class add err kri uko red clr diya css file me 
+  ab isko as a erro show krna h  conditinaly show krna h 0 cartr pe initiali hide bhona chahiye 10 kw uspr show hona chahiye to isme  
+  directive lgate h *ngIf iske age ak condition lgana hota h  a condition jb true ho tb a show hoga a jb fals ho tb a ni dikhega ..
+
+*ngIf ka syntax: *ngIf='formname.get(controlname'userNAME')?.errors?.['maxlength']    '
+ ab maxlength ka validation lagana pdega ts me builder me tb tk o lega ni 
+
+jo o send arry btaya tha o validation ke liye tha is ,
+userName: ['',[validatore.maxlength(10) ]]
+validator a import bhi hota h krna h ,maxlength pass kri 10,
+validatore.maxlength a inbuilt err mthd h arugument manun je kahi vue pass krenge o uspe aply hoga 
+
+ab a if  tbhi trigger hoga jb a err true hoga means 10 se upr charector hnge tb tur hua to eeror show honga asa internaly seen h uska  initiali a false h jaise ehi user beyond 10char, gya a error show hoga 
+jise rEMOVE kiya char. err remove ho gya 
+
+?spantag q errr ke liye > kyoki o responsive h uske ander jo contain ayenge o utna hi space ocupie krega  pura ka pura width ni lega  agr responsive ni rkhna h to div dala to apko a width ocupi mtlb likhna pdega set krna pdega a sb chije h btr span lelo jitna lgega utna width o khud hi khud le lega 
+99.9 % span use kiya jata h 
+
+ab> submitbtn  eere h fir bhi form submitkkri h ab actule me isko disable krna hota h jb tk a valid ni h information tb tk  a kaise krenge
+>btnme> akdisabled property  rhti h usse  
+[disabled]='!fornname.valid'
+: jaise hi error throw hogya a disable hogya 
+
+-->
+
+<!-- 
+//09-10-23
+// front end mndhi tu kay kel ahes ani backend mndhi ka shikla ahes?
+>> html css angular - front end 
+
+// node js abhi maine chalu kiya h pdhna fkt mi ata majha hang jone mnde practice krty asa bol skte ho aye ni to 
+ realtime me work ni kiya h 
+
+ project decription as it is path krach ahe te 
+ prt blockrs ka ale tr sangach temlead handl krach te sangache ithu soln ghya   mng amhi ts ts try krach ty according 1 2 soln dyache tyatl   work kraych  kuthl tari  as kahi mjor problem nhote thode chalenging hote pn te resolve honya sarkhe hote  temlead ch soln resolve jhal ahe 
+
+ mjore roll puche to kahi ni api binding hot mnj validations hote  funtionality che parts chotechote mnj me kele as sangu shkte , 
+ subj vrti kam kel subject vaprle amhi project mndhe  kiva mng ata  material vaprl angularch vagere 2  material consept pdhna pdega .. tumko 
+ model close krn bootstrap asb material me ata h 
+
+ builder ak class h jisme group nam ki math h jyala  as a object purn form che controll pas krnar ahe so that dom cha purn controll ts mndhe ayin ani apn validation vagere as pr thaire syntx atach kru shkte
+ isliye a group jyacha mndhe ahe ti  dependency  construoctr me atach inject ki tyala import kel  ani tyala refrence property nav dil fb he nav  custmizeh kuch bhi deskte it shoud bi corileted to this class thats y
+
+ constructor ani gonit me diffrence ?..
+ngOnInit a life cycle hook h constuctor a lifecycle hook ni h ,jb aplication me component load hota h  run hota h tb a automatic call hota h  pn b4 ng oninit sbse phle constuctor call hota h fir eske bad ngon int cal hota h or uske bad baki life cyclehooks cal hoote h ..
+apart from that constuctor cha use dependency inject krne ke liye hot h or lifecyklhook ngoninit ka akhadi gosht ithe page lod vrti kahi deta get kracha ahe get mins gyaycha ahe kiva kahi fun trigger krna h call krna h to us case me ap le skte ho 
+
+group mr syntax: object control : arry
+control ka syntax arry>> ['valueempty stringke liye'',arry>[validators.-atribute(value)--]]
+, controll:arrynumber ke liye[ null,[]]
+
+ng oninit mndhla code constructore mndhe takla tr run hoil ka ? i/w
+yes hoil run bt it is not good practice as pr the angu..standerd 
+
+*ngIf ka syntax jo ki error show krne me hota h 
+*ngIf= " formsnamefollowedby.get a get ak inbuilt mthd ho use krke pramiter me ('jiske liye err thwo krna h o pass krenge ')fir?. se usko optional bnaya error ka if agr vaue midalli tr mathch h to age ni ajo ni h to jao fir error h to kosa chek krta h uske liye ?.[konsa check krana h o pass kroproperty isko bulder me jake ddifin kro ]  "
+>> null/true 2case ho skta h return krta h   
+
+
+?? kadachit akhad reactive signup form bnane de skte h validation aly krne ko bolskte h practice kro costum validation aply krne ko bolskte h  assisment
+
+//practice kro
+  butifiy kro form ko..
+
+
+-->
+<!-- 
+  10/10/23:- blank : minlegth maxlength
+
+  11/10/23 :- form>> validation >> minlength maxlength pattern  
+  
+
+  i/w ptterm me ager err ho to kya return krta h or na hoto kya return krta h ?
+  anser// h to true krega return or na ho to null 
+
+  minlength maxlength maxlength pattern how to show conditionaly error , 
+  dob, mobilenomber ,age 
+email ragex ppattern..
+ 
+
+
+  12/10/23 : - 
+  
+
+  
+
+ -->
+
+ <!-- 
+ //13/10/23
+
+ install bootstrap :
+
+
+ cammand :
+ npm install ngx-bootstrap bootstrap --save >> 
+ 
+ 
+{
+
+ PS D:\angularpractice\my_practice\myJunAnglurSession> npm install ngx-bootstrap bootstrap --save
+
+added 3 packages, and audited 963 packages in 19s
+
+115 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+
+ }
+
+2icon install krne ke liye command :
+npm install bootstrap bootstrap-icons 
+
+ 
+PS D:\angularpractice\my_practice\AnglurSession> npm install bootstrap bootstrap-icons
+myJun
+
+added 1 package, and audited 964 packages in 21s
+
+116 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+
+3. angular.jeson>> 
+
+            "styles": [
+              "src/styles.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
+229
+  -->
+

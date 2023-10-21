@@ -1,0 +1,105 @@
+<div  class="container">
+  <h1>sign Up form </h1>
+
+  <form [formGroup]="principelForm" >
+
+    <label> <b> User Name </b>  </label> <br>
+    <input type="text" formControlName="userName" placeholder="First and Last Name "><br>
+    <span class="err" *ngIf="principelForm.get('userName')?.errors?.['maxlength']">
+       Maximaum 10 charector allowed </span> 
+    <span class="err" *ngIf="principelForm.get('userName')?.errors?.['minlength']">
+      minimum 5 charector are required</span>
+    <span class="err" *ngIf=" ! principelForm.get('userName')?.errors?.['maxlength']  
+     &&  
+      ! principelForm.get('userName')?.errors?.['minlength']   
+     && 
+      principelForm.get('userName')?.errors?.['pattern']">
+       Enter only alphabates  </span>
+
+  <!-- i/w ptterm me ager err ho to kya return krta h or na hoto kya return krta h ?
+  anser// h to true krega return or na ho to null 
+ -->
+
+    <br><label> <b>Email id </b> </label><br>
+    <input type="text" formControlName="emailId" placeholder=" Email address"><br>
+    <span class="err" *ngIf="principelForm.get('emailId')?.errors?.['pattern']">
+       enter valid emailId ! </span> <br>
+    
+    <label> <b> Mobile Nomber </b> </label><br>
+    <input type="text" class="mob-inp" placeholder="+91" value="+91">
+    <input type="text" formControlName="mobileNumber" placeholder="Mobile Number" maxlength="10" ><br>
+      <!--  <span class="err" *ngIf="principelForm.get('mobileNumber')?.errors?.['maxlength']">
+           Mobile Number required  only 10 digit number </span>  
+          //is case se apn if agr a arrr show krana ko bole tb mthd use krte h ya direct restrict 10 upre lehi na to atribute se
+         <span class="err" *ngIf="principelForm.get('mobileNumber')?.errors?.['required']">  
+         10 digit mobileNumber required! </span> <br><br> 
+         // ye refresh pe form pe hr bar dikahyega error thats y it is not god practice  
+      -->
+ <span class="err" *ngIf="principelForm.get('mobileNumber')?.errors?.['pattern']"> 
+      Enter Number Only </span> <br>
+     
+
+   <label ><b>  Date Of Birth  </b></label><br>
+   <input type="text" formControlName="dob"  placeholder="dd/mm/yyyy" (blur)="calyear()"><br>
+   <span class="err" *ngIf="principelForm.get('dob')?.errors?.['pattern']">
+   please enter date in proper formate </span> <br> 
+  
+   <label> <b> your age </b></label><br>
+  <input  formControlName="age" placeholder="your age" [value]="userage" >  <br>
+  <span> Your Age : {{userage}} </span><br><br>
+  <!-- <span class="err" *ngIf="(age >18 && age < 60)" > -->
+     <!-- age should be above 18 and bello 60 required!</span> -->
+ 
+<!-- <input type="date" formControlName="db" (blur)="calyear()"> 
+    {{userage}} -->
+
+<input type="checkbox" formControlName="TC">
+please accept turms and condition <br>
+<span class="err" *ngIf="principelForm.get('tc')?.invalid &&
+(principelForm.get('TC')?.touched  
+ || principelForm.get('TC')?.dirty) ">
+  please accept turms and condition </span><br>
+
+<label> <b> Gender </b>  </label> <br>
+<input type="radio" formControlName="gender"  value="male" (change)="gender()">male
+<input type="radio" formControlName="gender"  value="female" (change)="gender()">female
+<input type="radio" formControlName="gender"  value="other" (change)="gender()">other
+
+<span class="err" *ngIf="isGenderSelected">
+  please select gender </span><br>
+
+<br>
+  <div>
+    <label > <b> Password </b></label><br>
+  </div>
+  <div>
+      <input [type] = "showPass ? 'text' : 'password' " >
+      <span class="p-viewer" *ngIf="showPass" >
+        <i class="bi bi-eye" (click)="showPassword()"> </i> </span> 
+      <span class="p-viewer-slash" *ngIf="!showPass">
+    <i class="bi bi-eye-slash" (click)="showPassword()"></i>
+    </span>
+  </div>
+  <br>
+ 
+  <button (click)="submit()" [disabled] ="!principelForm.valid"> submit </button>
+
+
+
+  </form>
+</div>
+<!--  name atribute  angular me change  formControlName se jana jata h input filed  ki value  isko  map hogi /input filed me user jo value dega o value  isme bind hotih   
+// cant bind vala error aye to kuch import krne ka chut gyah module.ts file me 
+
+1. forgroup ke liye  reactiveformsmodule add or import krna pdega primod.ts me 
+2. formsmodule 2waydeta binding ke liye import krdo..
+
+FormGroup a inbuilt data type h isko import krna pdega isko any dal skte h pr as pr the standerd reactive forms ka property always formgroup type ka  hona chahiye 
+formcontrollname atribute is use to give name the perticular input fild or iska control krne ke liye name dene ke liye a use me ata h corilated name static de diya jo bhi dena ho 
+
+ngOnInIt(){} a ak life cycle hook h a ak funhihota h isko call krna ni pdta a internly call hota h compiler internly call krta h isko 
+pageload pe form load krna h to ngoninit ()me  funko call krenge kyoki a intialicomple hota h 
+
+
+
+-->
